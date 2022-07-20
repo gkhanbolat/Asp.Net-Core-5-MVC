@@ -64,8 +64,8 @@ namespace CoreProje
             app.UseAuthentication();
 
             app.UseStatusCodePages();
-            
-            
+
+
             app.UseSession();
 
             app.UseRouting();
@@ -74,10 +74,20 @@ namespace CoreProje
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }
