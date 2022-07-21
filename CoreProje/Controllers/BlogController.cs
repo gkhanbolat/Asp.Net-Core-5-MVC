@@ -13,16 +13,17 @@ using System.Threading.Tasks;
 
 namespace CoreProje.Controllers
 {
-    [AllowAnonymous]
+    
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var values = bm.GelBlogListWithCategory();
             return View(values);
         }
-
+        [AllowAnonymous]
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
