@@ -49,7 +49,7 @@ namespace CoreProje.Areas.Admin.Controllers
             var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var writerid = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
             p.SenderID = writerid;
-            p.ReceiverID = 2;
+            p.ReceiverID = 1;
             p.MessageDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.MessageStatus = true;
             mm.TAdd(p);
